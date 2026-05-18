@@ -12,4 +12,7 @@ Blake Turman
 Pipline: Clean and process EEG and fNIRS data (EEG and fNIRS process) + Construct groundtruth labels from BART data (Encode actuals) --> Put it all together and organize (Consolidate input data) --> Run neural network analyses (MLPs)
 </br>
 <br>
+Analyses: Run BART perfomance model validation loop (RiskyValidation) --> Use selected best features to run temperature condition model validation loop (HotValidation) --> Run baseline validation loops likewise (RiskyBaseline --> HotBaseline) --> Run main with selected best features and hyperparameters
+</br>
+<br>
 All real data is omitted from repository

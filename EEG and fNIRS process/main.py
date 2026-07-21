@@ -121,9 +121,9 @@ def normalize_EEG(EEG_cleaned):
     
     return EEG_normalized, EEG_spectrum_normalized
 
-def seperate_EEG_bands(EEG_spectrum):
+def separate_EEG_bands(EEG_spectrum):
     
-    # get seperated bands - these are the same ranges as the compute_psd() function does
+    # get separated bands - these are the same ranges as the compute_psd() function does
     delta = EEG_spectrum.get_data(fmin=0.0, fmax=4.0)
     theta = EEG_spectrum.get_data(fmin=4.0, fmax=8.0)
     alpha = EEG_spectrum.get_data(fmin=8.0, fmax=12.0)
@@ -132,8 +132,8 @@ def seperate_EEG_bands(EEG_spectrum):
     
     return delta, theta, alpha, beta, gamma
 
-def seperate_average_EEG_bands(EEG_spectrum):
-    delta, theta, alpha, beta, gamma = seperate_EEG_bands(EEG_spectrum)
+def separate_average_EEG_bands(EEG_spectrum):
+    delta, theta, alpha, beta, gamma = separate_EEG_bands(EEG_spectrum)
     
     # average the specified band to get power value
     delta_avg = delta.mean(axis=1)
@@ -147,7 +147,7 @@ def seperate_average_EEG_bands(EEG_spectrum):
 def export_EEG(EEG_spectrum, EEG_cleaned, filePrefix):
     
     # average EEG scalars
-    delta_avg, theta_avg, alpha_avg, beta_avg, gamma_avg = seperate_average_EEG_bands(EEG_spectrum)
+    delta_avg, theta_avg, alpha_avg, beta_avg, gamma_avg = separate_average_EEG_bands(EEG_spectrum)
     
     # make EEG dataframe
     export_EEG_data = {
